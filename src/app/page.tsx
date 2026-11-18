@@ -15,8 +15,8 @@ import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { TaglineReveal } from "@/components/tagline-reveal";
 
-const googleListingName = "Amritsar Haveli Abids and Samroze Coffee";
-const googlePlaceId = "ChIJicyF8HiZyzsRjKsneXKgZN0";
+const googleListingName = "ASTER CAFE & KITCHEN";
+const googlePlaceId = "ChIJnzK9B3SXyzsR5wxXD3IFP1M";
 const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(googleListingName)}&query_place_id=${googlePlaceId}`;
 const reviewUrl = `https://search.google.com/local/writereview?placeid=${googlePlaceId}`;
 const googleLinkClass =
@@ -158,7 +158,7 @@ export default function Home() {
               className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3 text-white"
             >
               <div>
-                <p className="caption-3 text-[#f2c66f]">Find us in Abids, Hyderabad</p>
+                <p className="caption-3 text-[#f2c66f]">Find us in Banjara Hills, Hyderabad</p>
                 <p id="google-listing" className="title-3">{googleListingName}</p>
               </div>
               <div className="flex flex-wrap gap-2">

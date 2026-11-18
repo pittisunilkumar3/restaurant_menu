@@ -24,7 +24,7 @@ The restaurant name, menu, prices and opening hours are sample content. Edit the
 
 The full menu lives at `/menu`. Its page content and metadata are in `src/app/menu/page.tsx`; the interactive category showcase is in `src/components/menu-browser.tsx`.
 
-The homepage links to the Google Maps listing and Google review form for **Amritsar Haveli Abids and Samroze Coffee** in Hyderabad. To change the destination, update `googleListingName` and `googlePlaceId` in `src/app/page.tsx`, along with the displayed location. Google reviews are separate from the ratings stored by this site.
+The homepage links to the Google Maps listing and Google review form for **ASTER CAFE & KITCHEN** in Banjara Hills, Hyderabad. To change the destination, update `googleListingName` and `googlePlaceId` in `src/app/page.tsx`, along with the displayed location. Google reviews are separate from the ratings stored by this site.
 
 ## Ratings
 
