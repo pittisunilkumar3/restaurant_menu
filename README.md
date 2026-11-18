@@ -1,36 +1,35 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Saffron & Smoke
 
-## Getting Started
+A responsive restaurant landing page built with Next.js, React, TypeScript, Tailwind CSS and Phosphor icons. It includes menu category filters, dietary labels, scroll reveals, FAQs and persistent restaurant ratings.
 
-First, run the development server:
+## Run locally
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Verify
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run lint
+npm run build
+```
 
-## Learn More
+## Restaurant content
 
-To learn more about Next.js, take a look at the following resources:
+The restaurant name, menu, prices and opening hours are sample content. Edit the page content in `src/app/page.tsx` and menu entries in `src/data/menu.ts`.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+The full menu lives at `/menu`. Its page content and metadata are in `src/app/menu/page.tsx`; the interactive category showcase is in `src/components/menu-browser.tsx`.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+The homepage links to the Google Maps listing and Google review form for **Amritsar Haveli Abids and Samroze Coffee** in Hyderabad. To change the destination, update `googleListingName` and `googlePlaceId` in `src/app/page.tsx`, along with the displayed location. Google reviews are separate from the ratings stored by this site.
 
-## Deploy on Vercel
+## Ratings
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+`GET /api/ratings` returns the current average and rating count. `POST /api/ratings` accepts a JSON body with an integer `rating` from 1 to 5.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Ratings are stored in `data/ratings.json`. Writes are serialized and saved with an atomic file rename. This storage works on one persistent Node.js server. Use a shared durable database before deploying to serverless or multiple instances.
+
+Set `NEXT_PUBLIC_SITE_URL` to the public site URL for correct social sharing metadata.

@@ -1,26 +1,125 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #f7f1e7;
+  --foreground: #1f1f1f;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-manrope);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-manrope), sans-serif;
+}
+
+::selection {
+  background: #e8aa42;
+  color: #1f1f1f;
+}
+
+:focus-visible {
+  outline: 2px solid #e8aa42;
+  outline-offset: 4px;
+}
+
+@layer components {
+  .heading-1 {
+    @apply text-4xl font-semibold tracking-[-0.05em] text-balance sm:text-5xl lg:text-6xl;
+  }
+
+  .heading-2 {
+    @apply text-4xl font-semibold tracking-[-0.04em] text-balance sm:text-5xl;
+  }
+
+  .title-1 {
+    @apply text-xl font-medium text-balance;
+  }
+
+  .title-2 {
+    @apply text-lg font-medium text-balance;
+  }
+
+  .title-3 {
+    @apply text-base font-medium text-pretty;
+  }
+
+  .title-4 {
+    @apply text-sm font-medium;
+  }
+
+  .body-3 {
+    @apply text-base font-normal text-pretty;
+  }
+
+  .body-5 {
+    @apply text-sm font-medium text-pretty;
+  }
+
+  .button-md {
+    @apply text-base font-semibold;
+  }
+
+  .button-sm {
+    @apply text-sm font-semibold;
+  }
+
+  .caption-3 {
+    @apply text-xs font-semibold;
+  }
+
+  .caption-4 {
+    @apply text-xs font-medium;
+  }
+
+  .caption-5 {
+    @apply text-xs font-normal text-pretty;
+  }
+}
+
+.skeleton {
+  animation: skeleton-pulse 1.5s cubic-bezier(0.22, 1, 0.36, 1) infinite alternate;
+}
+
+.menu-enter {
+  animation: menu-enter 500ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes skeleton-pulse {
+  from {
+    opacity: 0.45;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes menu-enter {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .skeleton,
+  .menu-enter {
+    animation: none;
+  }
 }
